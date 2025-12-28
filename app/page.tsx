@@ -2,6 +2,8 @@ import Header from "./components/Header";
 import Projects from "./components/Projects";
 import Approach from "./components/Approach";
 import Contact from "./components/Contact";
+import Skills from "./components/Skills";
+import Education from "./components/Education"; // Importation du composant Education
 import { DATA } from "./data";
 import { Download, ArrowRight } from "lucide-react";
 
@@ -81,34 +83,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* APPROACH SECTION */}
+      {/* APPROACH SECTION (Philosophie Ingénieur) */}
       <Approach />
 
-      {/* SKILLS SCROLL */}
-      <section id="skills" className="py-12 border-y border-white/10 bg-black">
-        <div className="container mx-auto px-6">
-           <p className="text-center text-gray-500 text-sm font-semibold uppercase tracking-widest mb-8">
-             Technologies Maîtrisées
-           </p>
-           <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-90">
-              {DATA.skills.map((skill, i) => (
-                <div key={i} className="flex flex-col items-center gap-3 group">
-                  <div className="p-4 bg-zinc-900 rounded-xl border border-white/10 group-hover:border-red-500/50 group-hover:bg-zinc-800 transition-all">
-                    <skill.icon size={28} className="text-gray-300 group-hover:text-red-400 transition-colors" />
-                  </div>
-                  <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
-           </div>
-        </div>
-      </section>
+      {/* SKILLS SECTION (Compétences Techniques & Langues) */}
+      <Skills />
 
-      {/* PROJETS */}
+      {/* EDUCATION SECTION (Formation & Diplômes) */}
+      <Education />
+
+      {/* PROJETS (UN-IT Mobility) */}
       <Projects />
 
-      {/* CONTACT (Remplace l'ancien footer) */}
+      {/* CONTACT (Formulaire + Carte) */}
       <Contact />
 
       {/* Copyright discret */}

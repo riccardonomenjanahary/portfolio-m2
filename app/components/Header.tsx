@@ -9,9 +9,21 @@ export default function Header() {
         </div>
         
         <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-300">
-          <Link href="#about" className="hover:text-white hover:underline decoration-red-600 underline-offset-4 transition-all">À propos</Link>
-          <Link href="#projects" className="hover:text-white hover:underline decoration-red-600 underline-offset-4 transition-all">Projets</Link>
-          <Link href="#skills" className="hover:text-white hover:underline decoration-red-600 underline-offset-4 transition-all">Compétences</Link>
+          <Link href="#" className="hover:text-white hover:underline decoration-red-600 underline-offset-4 transition-all">
+            À propos
+          </Link>
+          
+          <Link href="#education" className="hover:text-white hover:underline decoration-red-600 underline-offset-4 transition-all">
+            Formation
+          </Link>
+          
+          <Link href="#skills" className="hover:text-white hover:underline decoration-red-600 underline-offset-4 transition-all">
+            Compétences
+          </Link>
+
+          <Link href="#projects" className="hover:text-white hover:underline decoration-red-600 underline-offset-4 transition-all">
+            Projets
+          </Link>
         </nav>
         
         <Link 

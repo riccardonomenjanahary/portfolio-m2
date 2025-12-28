@@ -16,13 +16,25 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 max-w-6xl mx-auto">
           
-          {/* COLONNE GAUCHE : Formulaire */}
+          {/* COLONNE GAUCHE : Formulaire Fonctionnel Web3Forms */}
           <div className="bg-zinc-900/50 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
-            <form className="space-y-6">
+            <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
+              
+              {/* CLÉ D'ACCÈS SECRÈTE */}
+              <input type="hidden" name="access_key" value="ad604655-4272-4d12-8028-818f136b43b0" />
+              
+              {/* Configuration optionnelle Web3Forms */}
+              <input type="hidden" name="from_name" value="Portfolio Contact" />
+              <input type="hidden" name="subject" value="Nouveau message de votre Portfolio" />
+              {/* Anti-spam Honeypot */}
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Nom Complet</label>
                 <input 
                   type="text" 
+                  name="name" 
+                  required
                   className="w-full bg-zinc-800/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition-colors placeholder-gray-600"
                   placeholder="Votre nom"
                 />
@@ -32,6 +44,8 @@ export default function Contact() {
                 <label className="block text-sm font-medium text-gray-400 mb-2">Email Professionnel</label>
                 <input 
                   type="email" 
+                  name="email" 
+                  required
                   className="w-full bg-zinc-800/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition-colors placeholder-gray-600"
                   placeholder="votre@email.com"
                 />
@@ -40,6 +54,8 @@ export default function Contact() {
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
                 <textarea 
+                  name="message" 
+                  required
                   rows={4}
                   className="w-full bg-zinc-800/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition-colors placeholder-gray-600 resize-none"
                   placeholder="Décrivez votre projet..."
@@ -75,14 +91,13 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Si DATA.profile.phone existe dans data.ts, sinon mettre en dur */}
               <div className="flex items-start gap-4 text-gray-300 group">
                 <div className="p-3 bg-zinc-900 rounded-lg text-red-500 group-hover:bg-red-600 group-hover:text-white transition-colors">
                   <Phone size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Téléphone</p>
-                  <p className="font-medium">+261 38 13 033 65 / +261 37 69 981 26</p>
+                  <p className="font-medium">{DATA.profile.phone}</p>
                 </div>
               </div>
 
@@ -92,17 +107,18 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Localisation</p>
-                  <p className="font-medium">Antarandolo, Fianarantsoa, Madagascar</p>
+                  <p className="font-medium">40E 3603 Ambalakosoa, Fianarantsoa, Madagascar</p>
                 </div>
               </div>
             </div>
 
-            {/* Carte Google Maps (Embed) */}
+            {/* Carte Google Maps */}
             <div className="bg-zinc-800 rounded-2xl overflow-hidden border border-white/10 h-64 relative group">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30235.66696773822!2d49.383333!3d-18.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21f5010901511259%3A0x6280456108151325!2sToamasina!5e0!3m2!1sfr!2smg!4v1700000000000!5m2!1sfr!2smg" 
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1576.7196881750014!2d47.094333300000005!3d-21.4411446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDI2JzI4LjYiUyA0N8KwMDUnNDIuNyJF!5e0!3m2!1sfr!2smg!4v1700000000000!5m2!1sfr!2smg" 
                 className="w-full h-full grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" 
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-red-500/20 pointer-events-none rounded-2xl transition-colors"></div>
             </div>
